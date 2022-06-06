@@ -2,7 +2,7 @@
 let vs = []
 let emoticon;
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
   emot = loadImage('emoticon.png')
   for(var i = 0; i<10; i++){
     xPos = random(400)
@@ -15,9 +15,16 @@ function setup() {
 function draw() {
   background(220);
   
+  textSize(20);
+  fill(0, 102, 153);
+  text('Kelompok 3 Visualisasi dalam Sains', 10, 30);
+  fill(0, 102, 153);
+  text('Simulasi Buzzer Bot', 10, 50);
+  fill(0, 102, 153);
+  text('Koordinator Yahya Agung Nadabunda', 10, 70);
   
   mouse = createVector(mouseX, mouseY);
-  ellipse(mouse.x, mouse.y, 20, 20)
+  ellipse(mouse.x+10, mouse.y+10, 20, 20)
   for(var i = 0; i<10; i++){
   vs[i].display()
   vs[i].arrive(mouse);
@@ -43,7 +50,7 @@ class Vehicle{
     var desired = p5.Vector.sub(vektorTarget, this.location);
     desired.normalize();
     desired.mult(this.maxspeed);
-    
+  
     //kemudi
     var steer = p5.Vector.sub(desired, this.velocity);
     steer.limit(this.maxforce);
@@ -57,7 +64,8 @@ class Vehicle{
     if(jarak < 100){
       var m = map(jarak, 0 ,100,0, 0);
       desired.normalize();
-    desired.mult(m);
+      desired.mult(m);
+ 
     }
     else{
     desired.normalize();
